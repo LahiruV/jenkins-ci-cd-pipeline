@@ -74,7 +74,7 @@ pipeline {
     post {
         success {
             // Send email notification on success
-            mail to: 'lahiruvimukthi292@gmail.com',
+            mail to: 'S224043133@deakin.edu.au',
                  subject: "SUCCESS: ${env.JOB_NAME} (${env.BUILD_NUMBER})",
                  body: "The build was successful.\n\nLogs:\n${env.BUILD_URL}consoleText"
             
@@ -83,7 +83,7 @@ pipeline {
         }
         failure {
             // Send email notification on failure
-            mail to: 'lahiruvimukthi292@gmail.com',
+            mail to: 'S224043133@deakin.edu.au',
                  subject: "FAILURE: ${env.JOB_NAME} (${env.BUILD_NUMBER})",
                  body: "The build failed.\n\nLogs:\n${env.BUILD_URL}consoleText"
             
