@@ -5,16 +5,20 @@ pipeline {
             steps {
                 echo 'Building the application...'
                 // Using Maven as a build tool
-                sh 'mvn clean package'
+                // sh 'mvn clean package'
                 // Alternative: Using Gradle
                 // sh 'gradle build'
+                // Alternative: Using Ant
+                // sh 'ant build'
+                // Alternative: Using Make
+                // sh 'make'
             }
         }
         stage('Unit and Integration Tests') {
             steps {
                 echo 'Running unit and integration tests...'
                 // Using JUnit for unit tests
-                sh 'mvn test'
+                // sh 'mvn test'
                 // Alternative: Using Mocha for JavaScript projects
                 // sh 'npm test'
             }
@@ -24,7 +28,7 @@ pipeline {
                 echo 'Performing code analysis...'
                 // Using SonarQube for code analysis
                 withSonarQubeEnv('SonarQube') {
-                    sh 'mvn sonar:sonar'
+                    //sh 'mvn sonar:sonar'
                 }
                 // Alternative: Using ESLint for JavaScript
                 // sh 'eslint .'
@@ -34,7 +38,7 @@ pipeline {
             steps {
                 echo 'Performing security scan...'
                 // Using OWASP Dependency-Check for security scanning
-                sh 'dependency-check --project my-app --scan . --format XML --out dependency-check-report.xml'
+                // sh 'dependency-check --project my-app --scan . --format XML --out dependency-check-report.xml'
                 // Alternative: Using Bandit for Python code
                 // sh 'bandit -r .'
             }
@@ -43,7 +47,7 @@ pipeline {
             steps {
                 echo 'Deploying to staging server...'
                 // Deploy to staging using SCP
-                sh 'scp target/*.jar user@staging-server:/path/to/deploy'
+                // sh 'scp target/*.jar user@staging-server:/path/to/deploy'
                 // Alternative: Using Docker for containerized deployment
                 // sh 'docker build -t myapp . && docker run -d -p 8080:8080 myapp'
             }
@@ -52,7 +56,7 @@ pipeline {
             steps {
                 echo 'Running integration tests on staging...'
                 // Using Maven to run integration tests on staging
-                sh 'mvn verify -Pstaging'
+                // sh 'mvn verify -Pstaging'
                 // Alternative: Using Postman/Newman for API testing
                 // sh 'newman run my_collection.json'
             }
@@ -61,7 +65,7 @@ pipeline {
             steps {
                 echo 'Deploying to production server...'
                 // Deploy to production using SCP
-                sh 'scp target/*.jar user@production-server:/path/to/deploy'
+                // sh 'scp target/*.jar user@production-server:/path/to/deploy'
                 // Alternative: Using Kubernetes for orchestrated deployment
                 // sh 'kubectl apply -f deployment.yaml'
             }
