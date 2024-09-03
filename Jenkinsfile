@@ -27,9 +27,9 @@ pipeline {
             steps {
                 echo 'Performing code analysis...'
                 // Using SonarQube for code analysis
-                withSonarQubeEnv('SonarQube') {
+                // withSonarQubeEnv('SonarQube') {
                     //sh 'mvn sonar:sonar'
-                }
+                // }
                 // Alternative: Using ESLint for JavaScript
                 // sh 'eslint .'
             }
